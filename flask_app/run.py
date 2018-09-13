@@ -116,7 +116,7 @@ def signin():
 @app.route('/user/<int:user_key>/orders', methods=['GET', 'POST'])
 def orders_list(user_key):
     """
-    The page showing all availaible orders of orders
+    The page showing all availaible orders - The list of all user orders
     GET: Show all user's orders
     POST: Create a new category
     """
