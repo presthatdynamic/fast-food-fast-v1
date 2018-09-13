@@ -118,7 +118,7 @@ def orders_list(user_key):
     """
     The page showing all availaible orders - The list of all user orders
     GET: Show all user's orders
-    POST: Create a new category
+    POST: Create a new order - place a new order for food
     """
     active = 'orders_list'
     error = None
