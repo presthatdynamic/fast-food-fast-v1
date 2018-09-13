@@ -22,7 +22,7 @@ def index():
     active = 'home'
     return render_template('index.html', active=active)
 
-
+# user signup
 @app.route('/signup', methods=['POST'])
 def signup():
     """
