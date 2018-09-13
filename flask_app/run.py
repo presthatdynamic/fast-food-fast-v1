@@ -259,7 +259,7 @@ def order_detail(user_key, category_key, order_key):
     The page showing the details of a single order 
     including all steps (GET)
     It also handles PUT and DELETE of the order
-    It also handles POST for creation of new orderSteps
+    It also handles the update of an existing order
     """
     error = None
     editable = False
