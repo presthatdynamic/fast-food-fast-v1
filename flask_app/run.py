@@ -256,7 +256,7 @@ def categories_detail(user_key, category_key):
 methods=['POST', 'GET'])
 def order_detail(user_key, category_key, order_key):
     """
-    The page showing the details of a single order 
+    The page showing the details of a single order -Fetch a specific order
     including all steps (GET)
     It also handles PUT and DELETE of the order
     It also handles updates an existing order
