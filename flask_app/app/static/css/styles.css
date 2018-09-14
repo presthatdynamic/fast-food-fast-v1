@@ -1,0 +1,87 @@
+#front-page-dark {
+    background: url('../img/fast-food-bgd.jpg') center center no-repeat;
+    background-image:url('../img/fast-food-bgd.jpg');
+    background-image:-o-linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../img/fast-food-bgd.jpg');
+    background-image:-webkit-linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../img/fast-food-bgd.jpg');
+    background-image:-moz-linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../img/fast-food-bgd.jpg');
+    background-image:linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../img/fast-food-bgd.jpg');
+    min-height: 100%;
+    background-size: cover;
+}
+
+#no-background-image {
+    background: #fff;
+    min-height: 100%;
+}
+div#front-page-dark {
+    background-color: rgba(0,0,0,0.6);
+    min-height: 92vh;
+
+}
+
+.front-page {
+    background: rgba(255,255,255, 0) !important;
+    color: #fff;
+} 
+
+.front-page-content {
+    padding: 30vh 2vw 30vh 2vw;
+}
+
+div#home-page-form {
+    background: #996633;
+    padding: 1px 0%;
+	opacity:0.8;
+	border-radius: 15px;
+}
+
+div#front-form-tab-content {
+    padding: 5% 0%;
+}
+
+button.front-submit {
+    background-color: #996633;
+    color: #fff;
+    border: 1px solid #fff;
+}
+
+
+
+p.home-intro {
+    font-size: 1.3em;
+    color: #fff;
+}
+
+#front-page-dark #content {
+    color: #fff;
+}
+
+.page-title {
+    margin-top: 3%;
+    margin-bottom: 2%;
+}
+
+
+
+/* the table styling */
+.myTable {
+    border-collapse: collapse;
+    width: 100%;
+    border: 1px solid #ddd;
+    font-size: 15px;
+    overflow-x:auto;
+}
+
+.myTable th, .myTable td {
+    text-align: left;
+    padding: 12px;
+}
+
+.myTable tr {
+    /* Add a bottom border to the  table rows */
+    border-bottom: 1px solid #ddd;
+}
+
+.myTable tr.header, .myTable tr:hover {
+    background-color: #cc6600;
+}

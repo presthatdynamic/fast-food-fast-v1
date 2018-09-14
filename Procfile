@@ -1,0 +1,1 @@
+web: sh -c 'cd ./flask_app/ && gunicorn --workers=1 run:app'

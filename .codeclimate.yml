@@ -1,0 +1,20 @@
+engines:
+  pylint:
+    enabled: true
+    config:
+      extensions:
+      - .py
+  duplication:
+    enabled: true
+    config:
+      languages:
+      - python:
+ratings:
+  paths:
+  - flask_app/**
+
+exclude_paths:
+- "docs/"
+- "env/"
+- "**/templates/"
+- "**/__pycache__/"

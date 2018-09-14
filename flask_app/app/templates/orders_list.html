@@ -1,0 +1,139 @@
+{% extends 'base.html' %} {% block title %}-orders{% endblock %} {% block content %}
+<div id='content' class="container">
+    <div class="row">
+        <div class="col">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-md-10">
+                        <h2 class="page-title">Orders List</h2>
+                    </div>
+                    {% if editable %}
+                    <div class="col-12 col-md-2 page-title">
+                        <h2><button type="button" data-toggle="modal" data-target="#create-category" class="btn">Add Order</button></h2>
+                    </div>
+                    <!-- Create Category Modal -->
+                    <div id="create-category" class="modal fade" role="dialog">
+                        <div class="modal-dialog">
+
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Place a new Order</h4>
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                </div>
+
+                                <div class="modal-body">
+                                    <form method="POST" action="{{ url_for('orders_list', user_key=user_details['key']) }}">
+                                        <div class="form-group row">
+                                            <label for="name-in" class="col-sm-3 col-form-label"><b>KFC</b></label>
+                                            <div class="col-sm-9"><br/>                                              															
+												2 Pc. Chicken – Combo-20,000Ugshs<input type="radio" name="name" value="2 Pc. Chicken – Combo" class="form-control"/><br/>
+												Doublicious Sandwich--25,000Ugshs<input type="radio" name="name" value="Doublicious Sandwich" class="form-control"/><br/>
+												Popcorn Nuggets-15,000Ugshs<input type="radio" name="name" value="Popcorn Nuggets" class="form-control"/><br/>
+												Roast Pork-30,000Ugshs<input type="radio" name="name" value="Roast Pork" class="form-control"/><br/>
+											</div>	
+											</div>
+										<div class="form-group row">
+                                            <label for="name-in" class="col-sm-3 col-form-label"><b>MCDonald</b></label>
+                                            <div class="col-sm-9"><br/>	
+												Mashed Potatoes-13,000Ugshs<input type="radio" name="name" value="Mashed Potatoes" class="form-control"/><br/>
+												Mac & Cheese-13,000Ugshs<input type="radio" name="name" value="Mac & Cheese" class="form-control"/><br/>
+												Chicken Box-28,000Ugshs<input type="radio" name="name" value="Chicken Box" class="form-control"/><br/>
+												Mushroom soup-15,000Ugshs<input type="radio" name="name" value="Mushroom soup" class="form-control"/><br/>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="description-in" class="col-sm-3 col-form-label"><b>Description</b></label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" name='description' id="description-in" placeholder="description">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row modal-footer" style="margin-right: 5%;">
+                                            <div class="col-12 col-sm-2">
+                                                <button type="submit" class="btn btn-primary" style="width: auto; min-width: 100%; margin-bottom: 2%;">Save</button>
+                                            </div>
+                                            <div class="col-12 col-sm-2">
+                                                <button type="button" class="btn btn-default" style="width: auto; min-width: 100%; margin-bottom: 2%;" data-dismiss="modal">Cancel</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <!--modal-body-->
+                            </div>
+                            <!--modal-content-->
+                        </div>
+                        <!-- modal-dialog -->
+                    </div>
+                    <!--#create-category -->
+                    <!-- Edit Modals -->
+                    {% for order_category in order_categories %}
+                    <div id="edit-category-{{ loop.index }}" class="modal fade" role="dialog">
+                        <div class="modal-dialog">
+
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Edit {{ order_category.name }} Order</h4>
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                </div>
+
+                                <div class="modal-body">
+                                    <form method="GET" action="{{ url_for('categories_detail', user_key=user_details['key'], category_key=order_category.key) }}">
+                                        <div class="form-group row">
+                                            <label for="name-in" class="col-sm-3 col-form-label">Food</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" name='name' id="name-in" value="{{ order_category.name }}">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="description-in" class="col-sm-3 col-form-label">Description</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" name='description' id="description-in" value="{{ order_category.description }}">
+                                            </div>
+                                        </div>
+                                        <input type="hidden" name="_method" value="put" />
+                                        <div class="form-group row modal-footer" style="margin-right: 5%;">
+                                            <div class="col-12 col-sm-2">
+                                                <button type="submit" class="btn btn-primary" style="width: auto; min-width: 100%; margin-bottom: 2%;">Save</button>
+                                            </div>
+                                            <div class="col-12 col-sm-2">
+                                                <button type="button" class="btn btn-default" style="width: auto; min-width: 100%; margin-bottom: 2%;" data-dismiss="modal">Cancel</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <!--modal-body-->
+                            </div>
+                            <!--modal-content-->
+                        </div>
+                        <!-- modal-dialog -->
+                    </div>
+                    <!--#edit-category- -->
+                    {% endfor %} {% endif %}
+                </div>
+            </div>
+            <div class="table-responsive">
+                <table class="myTable">
+                    <tbody>
+                        {% for order_category in order_categories %}
+                        <tr>
+                            <th scope="row">{{ loop.index }}.</th>
+                            <td class="col-10"><a href="{{ url_for('categories_detail', category_key=order_category.key, user_key=user_details['key']) }}">{{ order_category.name }}:</a>                                {{ order_category.description[:65] }}...</td>
+                            {% if editable %}
+                            <td class="col-1"><button type="button" data-toggle="modal" data-target="#edit-category-{{ loop.index }}" class="btn btn-primary">Edit</button></td>
+                            <td class="col-1">
+                                <form action="{{ url_for('categories_detail', category_key=order_category.key, user_key=user_details['key'])}}" method="GET">
+                                    <input type="hidden" name="_method" value="delete" />
+                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                </form>
+                            </td>
+                            {% endif %}
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    {% endblock %}
