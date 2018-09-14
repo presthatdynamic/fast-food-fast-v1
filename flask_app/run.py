@@ -22,7 +22,7 @@ def index():
     active = 'home'
     return render_template('index.html', active=active)
 
-
+# user signup
 @app.route('/signup', methods=['POST'])
 def signup():
     """
@@ -116,9 +116,9 @@ def signin():
 @app.route('/user/<int:user_key>/orders', methods=['GET', 'POST'])
 def orders_list(user_key):
     """
-    The page showing all availaible orders of orders
+    The page showing all availaible orders - The list of all user orders
     GET: Show all user's orders
-    POST: Create a new category
+    POST: Create a new order - place a new order for food
     """
     active = 'orders_list'
     error = None
@@ -256,10 +256,10 @@ def categories_detail(user_key, category_key):
 methods=['POST', 'GET'])
 def order_detail(user_key, category_key, order_key):
     """
-    The page showing the details of a single order 
+    The page showing the details of a single order -Fetch a specific order
     including all steps (GET)
     It also handles PUT and DELETE of the order
-    It also handles the update of an existing order!
+    It also handles updates an existing order
     """
     error = None
     editable = False
