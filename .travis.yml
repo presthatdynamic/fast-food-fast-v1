@@ -1,13 +1,2 @@
 language: python
-python:
- - "3.5"
-install: 
- - "pip install -r requirements.txt"
- - "pip install coveralls"
-env:
- - COVERAGE_FILE=".coverage" FLASK_APP="flask_app/run.py" SECRET="the-development-key-secret-hide-very-far" APP_SETTINGS="testing"
-script: sh -c 'cd ./flask_app/ && coverage run -m --source=app unittest discover test && coverage report'
-notifications:
-  webhooks: ! 'https://coveralls.io/webhook?repo_token=%{$COVERALLS_REPO_TOKEN}'
-after_success:
-  sh -c 'cd ./flask_app/ && coveralls'
+sudo: enabled
