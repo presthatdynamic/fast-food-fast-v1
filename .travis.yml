@@ -12,6 +12,3 @@ install:
   - pip install .
 # command to run tests
 script: pytest
-
-https://travis-ci.com/presthatdynamic/fast-food-fast-v1.svg?branch=master
-
