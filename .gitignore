@@ -86,7 +86,7 @@ celerybeat-schedule
 .venv
 venv/
 ENV/
-fastfood_env/
+/fastfood_env
 
 # Spyder project settings
 .spyderproject
